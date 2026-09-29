@@ -16,7 +16,7 @@ baseURL = "https://komjii2.github.io/hyunwoo-oh/"
   github = "https://github.com/komjii2"
   linkedin = "https://www.linkedin.com/in/hyunwoo-oh-629392294"
   avatar = "/images/avatar.png"
-  description = "I am a Ph.D. candidate at Hanyang University, advised by Prof. Dong-Jin Kim in the MMAI Lab. My research interests include geometry-aware deep learning, generative models, computer vision, and multimodal learning."
+  description = "I am a Ph.D. candidate at Hanyang University, advised by Prof. Dong-Jin Kim in the MMAI Lab. My research interests include geometry-aware deep learning, diffusion models, generative models, computer vision, and multimodal learning."
   keywords = ["Geometry-aware Deep Learning", "Diffusion Models", "Generative Models", "Computer Vision", "Multimodal Learning"]
 
 [[params.reviewer]]
