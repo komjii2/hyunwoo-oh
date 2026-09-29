@@ -1,0 +1,80 @@
+<header class="header">
+  <div class="header-inner">
+    {{/* Avatar: show the configured image when present, otherwise initials. */}}
+    {{ $avatar := .Site.Params.avatar }}
+    {{ if (fileExists (printf "static%s" $avatar)) }}
+      <img class="avatar" src="{{ replaceRE "^/" "" $avatar | relURL }}" alt="{{ .Site.Params.name }}">
+    {{ else }}
+      <div class="avatar-placeholder">HO</div>
+    {{ end }}
+
+    <div class="header-info">
+      <h1 class="header-name">
+        {{ .Site.Params.name }}
+        {{ with .Site.Params.nameKo }}<span class="header-name-ko">{{ . }}</span>{{ end }}
+      </h1>
+
+      <p class="header-role">
+        {{ .Site.Params.role }}<br>
+        <span class="muted">{{ .Site.Params.university }}</span><br>
+        <span class="advisor">
+          Advisor: <a href="{{ .Site.Params.advisorURL }}" target="_blank" rel="noopener noreferrer">{{ .Site.Params.advisor }}</a>
+        </span>
+      </p>
+
+      <div class="social-links">
+        <a class="social-link" href="mailto:{{ .Site.Params.email }}">
+          {{ partial "icons/email.html" . }} Email
+        </a>
+        <a class="social-link" href="{{ .Site.Params.scholar }}" target="_blank" rel="noopener noreferrer">
+          {{ partial "icons/scholar.html" . }} Scholar
+        </a>
+        <a class="social-link" href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">
+          {{ partial "icons/github.html" . }} GitHub
+        </a>
+        <a class="social-link" href="{{ .Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer">
+          {{ partial "icons/link.html" . }} LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" id="main-nav" aria-label="Primary navigation">
+  <a href="#about">About</a>
+  <a href="#publications">Publications</a>
+  <a href="#experience">Experience</a>
+  <a href="#service">Service</a>
+</nav>
+
+<script>
+(function() {
+  const nav = document.getElementById('main-nav');
+  const links = nav.querySelectorAll('a');
+  const sectionIds = Array.from(links).map(a => a.getAttribute('href').slice(1));
+
+  function updateActive() {
+    let current = sectionIds[0];
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 96) {
+        current = id;
+      }
+    }
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  links.forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById(this.getAttribute('href').slice(1));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
+</script>

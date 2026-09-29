@@ -1,0 +1,35 @@
+languageCode = "en-us"
+title = "Hyunwoo Oh"
+
+# GitHub Pages project URL for https://github.com/komjii2/hyunwoo-oh
+# Change this to your custom domain later if you connect one.
+baseURL = "https://komjii2.github.io/hyunwoo-oh/"
+
+[params]
+  name = "Hyunwoo Oh"
+  role = "Ph.D. Candidate"
+  university = "Hanyang University"
+  advisor = "Prof. Dong-Jin Kim"
+  advisorURL = "https://sites.google.com/view/hyu-mm/home"
+  email = "komjiikomjii@gmail.com"
+  scholar = "https://scholar.google.com/citations?user=g97DL20AAAAJ&hl=ko"
+  github = "https://github.com/komjii2"
+  linkedin = "https://www.linkedin.com/in/hyunwoo-oh-629392294"
+  avatar = "/images/avatar.png"
+  description = "I am a Ph.D. candidate at Hanyang University, advised by Prof. Dong-Jin Kim in the MMAI Lab. My research interests include geometry-aware deep learning, generative models, computer vision, and multimodal learning."
+  keywords = ["Geometry-aware Deep Learning", "Generative Models", "Computer Vision", "Multimodal Learning"]
+
+[[params.reviewer]]
+  year = "2025"
+  venues = ["NeurIPS"]
+
+[[params.reviewer]]
+  year = "2026"
+  venues = ["CVPR", "ECCV", "NeurIPS"]
+
+[[params.reviewer]]
+  year = "2027"
+  venues = ["AAAI"]
+
+[markup.goldmark.renderer]
+  unsafe = true
